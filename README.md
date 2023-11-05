@@ -5,9 +5,11 @@
 
 Este repositorio contiene tanto el back end como el front end y, por lo tanto, requiere de cierto material para funcionar.
 
-## Set up
+La carpeta `localCommerce` corresponde al FrontEnd del proyecto mientras que en `localCommerce-api` se encuentra todo lo relacionado con BackEnd fuera de las mismas no debería de haber nada que no sean cosas del repositorio de GitHub.
 
-Esos son todos los prerrequisitos para ejecutar el proyecto, por lo tanto procedemos con el Set up del mismo:
+Más adelante estableceremos una organización de carpetas y una serie de convenciones de programación para que todo quede organizado, por lo pronto todo el código deberá estar en **inglés** con **comentarios en castellano**
+
+## Set up
 
 ### Prerrequisitos
 
