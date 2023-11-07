@@ -1,2 +1,19 @@
-<h1>Hello world</h1>
-<app-commerce-component></app-commerce-component>
+<router-outlet></router-outlet>
+
+<!-- Cookies -->
+<ng-container *ngIf="!cookies">
+    <div class="cookies">
+        <div class="cookieText">
+            <p>
+                Este sitio web solo utiliza cookies necesarias para su correcto funcionamiento.  
+            </p>
+            <p>
+                Al continuar navegando en este sitio, aceptas el uso de estas cookies.
+            </p>
+        </div>
+        <div class="big-buttons">
+            <button class="big-button" (click)="hideCookies()" >Aceptar</button>
+        </div>
+    </div>
+</ng-container>
+<!-- ------- -->

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'localCommerce';
+  
+  cookies: boolean  = (localStorage.getItem('cookies') === "true");
+
+  hideCookies() {
+    localStorage.setItem('cookies', 'true');
+    this.cookies = (localStorage.getItem('cookies') === "true");
+  }
 }
