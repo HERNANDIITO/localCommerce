@@ -49,6 +49,7 @@ Si es así, todo ha funcionado correctamente.
 
 * Abrir una consola en localCommerce
 * Ejecutar `npm i`
+* Ejecutar `npm install -g @angular/cli`
 * Ejecutar `ng serve`
 
 Ahora deberías de ver por consola esto:
