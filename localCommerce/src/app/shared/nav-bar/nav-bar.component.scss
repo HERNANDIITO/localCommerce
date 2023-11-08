@@ -1,0 +1,78 @@
+
+nav {
+
+    position: sticky;
+    top: 0;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;  
+    -khtml-user-select: none;  
+    -moz-user-select: none;  
+    -ms-user-select: none;  
+    user-select: none;  
+                                
+    width: 100%;
+    height: 60px;
+    background-color: var(--c30);
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            padding: 5px;
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--c10);
+                border: 2.5px solid var(--c10);
+                padding: .5rem;
+                border-radius: .5rem;
+
+                &:hover {
+                    color: var(--c60);
+                    border-color: transparent;
+                    background-color: var(--c10);
+                    transition: all .25s;
+                }
+            }
+        }
+    }
+}
+
+a.active {
+    color: var(--c60) !important;
+    border-color: transparent !important;
+    background-color: var(--c10) !important;
+    transition: all .25s !important;
+}
+
+li.active > a {
+    color: var(--c60) !important;
+    border-color: transparent !important;
+    background-color: var(--c10) !important;
+    transition: all .25s !important;
+}
+
+.dropdown-menu.show {
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(5px, 30px);
+    border: none !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    padding: 0.5rem;
+    background-color: var(--c30);
+    display: flex;
+    flex-flow: column;
+
+    a {
+        margin-bottom: 5px !important;
+    }
+}

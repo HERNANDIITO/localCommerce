@@ -1,1 +1,31 @@
-<p>nav-bar works!</p>
+<nav>
+    <ul>
+        <ng-container *ngFor="let route of navRoutes">
+            <ng-container *ngIf="route.isPublic">
+                <ng-container [ngTemplateOutlet]="route.subsections ? routeWithSubsections : routeWithOutSubsections" [ngTemplateOutletContext]="{route}"></ng-container>
+            </ng-container>
+        </ng-container>
+    </ul>
+</nav>
+
+<ng-template #routeWithSubsections let-route='route'>
+    <li ngbDropdown (openChange)="checkOpenDropdowns()">
+        <a [ngClass]="{active: checkSubsections(route.subsections) }" class="dropdown-toggle" aria-controls="dropdown-basic" ngbDropdownToggle> {{ route.label }} </a>
+
+        <div ngbDropdownMenu>
+            <ng-container *ngFor="let subsection of route.subsections">
+                <ng-container *ngIf="subsection.isPublic">
+                    <a [ngClass]="{active: subsection.url === actualRoute}" [routerLink]="'/' + subsection.url"> {{ subsection.label }} </a>
+                </ng-container>
+            </ng-container>
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #routeWithOutSubsections let-route='route' >
+    <li>
+        <a [ngClass]="{active: route.url === actualRoute}" [routerLink]="'/' + route.url" >
+            {{route.label}}
+        </a>
+    </li>
+</ng-template>

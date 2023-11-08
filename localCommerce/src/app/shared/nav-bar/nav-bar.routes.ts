@@ -1,15 +1,9 @@
 let navRoutesJSON =
 [
   {
-    label: "Mundo",
+    label: "Inicio",
     isPublic: true,
-    subsections: [
-      {
-        label: "TRATADO",
-        url: "wiki",
-        isPublic: true
-      }
-    ]
+    url: ""
   },
   {
     label: "Servicios",
