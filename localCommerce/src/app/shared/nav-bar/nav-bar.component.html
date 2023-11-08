@@ -6,14 +6,10 @@
             </ng-container>
         </ng-container>
     </ul>
-    <form [formGroup]="loginForm" (submit)="login()">
-        <div class="inputs">
-            <input #user formControlName="user" type="text" placeholder="Usuario">
-            <input #pass formControlName="pass" type="text" placeholder="Contraseña">
-        </div>
-        <button>Log in</button>
-    </form>
+    <lc-login></lc-login>
 </nav>
+
+<!-- Rutas -->
 
 <ng-template #routeWithSubsections let-route='route'>
     <li ngbDropdown (openChange)="checkOpenDropdowns()">
@@ -36,3 +32,5 @@
         </a>
     </li>
 </ng-template>
+
+<!-- Login/Perfil -->

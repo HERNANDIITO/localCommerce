@@ -19,25 +19,6 @@ nav {
     flex-direction: row;
     justify-content: center;
 
-    form {
-        display: flex;
-        flex-direction: row;
-
-        .inputs {
-            display: flex;
-            flex-direction: column;
-
-            input {
-                color: var(--c60);
-            }
-        }
-
-        button {
-            color: var(--c60);
-        }
-
-    }
-
     ul {
         list-style-type: none;
         padding: 0;

@@ -1,0 +1,19 @@
+<ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut">
+
+</ng-container>
+
+
+<ng-template #logedOut>
+    <form [formGroup]="loginForm" (submit)="login()">
+        <div class="inputs">
+            <input #user formControlName="user" type="text"     placeholder="Usuario">
+            <input #pass formControlName="pass" type="password" placeholder="Contraseña">
+        </div>
+        <button>Log in</button>
+    </form>
+</ng-template>
+
+<ng-template #logedIn>
+    <p>{{this.user!._id}}</p>
+    <button (click)="logout()">Log out</button>
+</ng-template>

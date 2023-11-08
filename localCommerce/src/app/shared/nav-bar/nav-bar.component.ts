@@ -16,15 +16,9 @@ export class NavBarComponent implements OnInit {
 
   @ViewChildren(NgbDropdown) dropdownList!: QueryList<NgbDropdown>;
   navRoutes: Array<RouteInterface> = [];
-  loginSubscription?: Subscription;
   actualRoute = '';
 
-  loginForm = new FormGroup({
-    user: new FormControl(null, Validators.required),
-    pass: new FormControl(null, Validators.required),
-  });
-
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router) {
     router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -56,15 +50,4 @@ export class NavBarComponent implements OnInit {
     })
   }
 
-  login() {
-    let {user, pass} = this.loginForm.value;
-
-    console.log("attempting to login...")
-
-    if ( user && pass ) {
-      this.loginSubscription = this.userService.login(user, pass).subscribe( data => {
-        console.log(data)
-      })
-    }
-  }
 }

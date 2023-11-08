@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapComponent } from './map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

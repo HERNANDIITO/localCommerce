@@ -11,12 +11,24 @@ router.get('/api/getUsers', async (req, res) => {
     }
 })
 
-router.post('/api/login', async (req, res) => {
-    let user = req.body.user;
-    let pass = req.body.pass
-    console.log(user, pass)
+router.get('/api/getUserByID', async (req, res) => {
+    const userID = req.body.id;
+
     try {
-        const foundUser = await User.find({user: user, pass:pass})
+        const foundUser = await User.find(ObjectId(userID), {user: 0, pass: 0});
+        res.status(200).send(foundUser);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
+
+router.post('/api/login', async (req, res) => {
+    
+    const user = req.body.user;
+    const pass = req.body.pass;
+
+    try {
+        const foundUser = await User.findOne({user: user, pass:pass}, {user: 0, pass: 0})
         res.status(200).send(foundUser);
     } catch (error) {
         res.status(500).send(error);    
