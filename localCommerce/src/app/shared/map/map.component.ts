@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    const myAPIKey = "b127c77961fe4647a489eee79f729b9b";
+    const myAPIKey = "85201aebfd284ff5b56b7ab88f143aec";
     const mapStyle = "https://maps.geoapify.com/v1/styles/klokantech-basic/style.json";
 
     const initialState = {

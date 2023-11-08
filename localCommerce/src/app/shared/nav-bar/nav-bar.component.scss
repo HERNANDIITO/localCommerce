@@ -15,6 +15,29 @@ nav {
     height: 60px;
     background-color: var(--c30);
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    form {
+        display: flex;
+        flex-direction: row;
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                color: var(--c60);
+            }
+        }
+
+        button {
+            color: var(--c60);
+        }
+
+    }
+
     ul {
         list-style-type: none;
         padding: 0;
@@ -23,6 +46,7 @@ nav {
         height: 100%;
         justify-content: center;
         align-items: center;
+        flex-grow: 1;
 
         li {
             padding: 5px;

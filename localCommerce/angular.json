@@ -44,9 +44,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/mapbox-gl/dist/mapbox-gl.css",
-              "./node_modules/leaflet/dist/leaflet.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
@@ -110,9 +110,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/mapbox-gl/dist/mapbox-gl.css",
-              "./node_modules/leaflet/dist/leaflet.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           }

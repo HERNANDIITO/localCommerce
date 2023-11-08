@@ -2,8 +2,10 @@ import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { navRoutesJSON } from './nav-bar.routes';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 import { RouteInterface } from 'src/app/interfaces/route.interfaces';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'lc-nav-bar',
@@ -14,9 +16,15 @@ export class NavBarComponent implements OnInit {
 
   @ViewChildren(NgbDropdown) dropdownList!: QueryList<NgbDropdown>;
   navRoutes: Array<RouteInterface> = [];
+  loginSubscription?: Subscription;
   actualRoute = '';
 
-  constructor(private router: Router) {
+  loginForm = new FormGroup({
+    user: new FormControl(null, Validators.required),
+    pass: new FormControl(null, Validators.required),
+  });
+
+  constructor(private router: Router, private userService: UserService) {
     router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -32,7 +40,6 @@ export class NavBarComponent implements OnInit {
   
   ngOnInit(): void {
     this.navRoutes = navRoutesJSON;
-    console.log(this.actualRoute)
   }
 
   checkSubsections(routes: RouteInterface[]) {
@@ -47,5 +54,17 @@ export class NavBarComponent implements OnInit {
         dd.dropdownClass = '';
       }
     })
+  }
+
+  login() {
+    let {user, pass} = this.loginForm.value;
+
+    console.log("attempting to login...")
+
+    if ( user && pass ) {
+      this.loginSubscription = this.userService.login(user, pass).subscribe( data => {
+        console.log(data)
+      })
+    }
   }
 }
