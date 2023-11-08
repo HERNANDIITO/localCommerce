@@ -1,3 +1,7 @@
+:host {
+    overflow: visible;
+}
+
 form {
     display: flex;
     flex-direction: row;
@@ -8,11 +12,42 @@ form {
 
         input {
             color: var(--c60);
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right-width: 1px;
+        }
+
+        #user {
+            border-bottom-left-radius: 0;
+            border-bottom-width: 1px;
+        }
+        
+        #pass {
+            border-top-left-radius: 0;
+            border-top-width: 2px;
         }
     }
 
     button {
         color: var(--c60);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 
+}
+
+.pfp {
+    height: 100%;
+    width: 60px;
+    .user-img {
+        height: 100%;
+        padding: 5px;
+        cursor: pointer;
+    }
+    
+    .collapse, .collapsing {
+        z-index: 1000000;
+        position: absolute;
+        right: 5px;
+    }
 }

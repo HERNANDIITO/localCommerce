@@ -1,15 +1,19 @@
-<ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut">
-
-</ng-container>
-
+<div class="pfp">
+    <img class="user-img" src="/assets/icons/user.png" alt="" (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" >
+    
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut"></ng-container>
+    </div>
+</div>
 
 <ng-template #logedOut>
     <form [formGroup]="loginForm" (submit)="login()">
         <div class="inputs">
-            <input #user formControlName="user" type="text"     placeholder="Usuario">
-            <input #pass formControlName="pass" type="password" placeholder="Contraseña">
+            <input id="user" #user class="lc-input" formControlName="user" type="text"     placeholder="Usuario">
+            <input id="pass" #pass class="lc-input" formControlName="pass" type="password" placeholder="Contraseña">
         </div>
-        <button>Log in</button>
+        <button class="lc-button">Log in</button>
     </form>
 </ng-template>
 

@@ -15,6 +15,7 @@ export class LoginComponent {
   userSubscription?: Subscription;
   user?: UserInterface;
   isLoged = false;
+  isCollapsed = true;
 
   loginForm = new FormGroup({
     user: new FormControl(null, Validators.required),

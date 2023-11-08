@@ -13,7 +13,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
 
   @ViewChild('map')
-  private mapContainer!: ElementRef<HTMLElement>;
+  mapContainer!: ElementRef<HTMLElement>;
 
   constructor() { }
 
