@@ -1,18 +1,20 @@
 * {
     margin: 0 !important;
-    color: var(--c10) !important;
+    color: var(--cFont) !important;
 }
 
 // Paleta de color
 
 :root {
-    --c60: #222;
-    --c30: #323232;
-    --c10: #48E2D9;
+    --c60: #212122;
+    --c30: #1b1b1b;
+    --c10: #56C3d3;
+    --cFont: rgb(236, 234, 222);
 }
 
 h1 {
     margin-bottom: 1rem !important;
+    color: var(--c10) !important;
 }
 
 h2 {
@@ -24,7 +26,7 @@ p {
 }
 
 .lc-button {
-    color: var(--c10);
+    color: var(--c10) !important;
     border: 2.5px solid var(--c10);
     background-color: transparent;
     padding: 1rem;
@@ -91,4 +93,64 @@ p {
         transform: translateX(-50%);
     }
 
+}
+
+.lc-card {
+    background-color: var(--c30);
+    border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 1.5rem !important;
+}
+
+.lc-landscape {
+    img {
+        width: 100%;
+    }
+}
+
+// LEAFLET
+
+.leaflet-bar {
+    border: none !important;
+}
+
+.leaflet-left {
+    left: 5px !important;
+}
+
+.leaflet-top {
+    top: 5px !important;
+}
+
+.leaflet-control-zoom-in {
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    border: 2px solid transparent !important;
+}
+
+.leaflet-control-zoom-out {
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+    border: 2px solid transparent !important;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    background-color: var(--c60) !important;
+    cursor: pointer !important;
+
+    &:hover {
+        transition: all .25s;
+        border: 2px solid var(--c60) !important;
+        span {
+            color: var(--c60) !important;
+        }
+
+        background-color: var(--c10) !important;
+    }
+
+    span {
+        width: fit-content;
+        display: block;
+        margin: auto !important;
+    }
 }

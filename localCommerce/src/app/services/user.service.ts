@@ -10,7 +10,8 @@ export class UserService {
 
   private baseUrl: string = "http://localhost:3000/api/"
   private authStatus$ = new BehaviorSubject<boolean>(false);
-  private logedUser$ = new BehaviorSubject<UserInterface>({_id: "", type: ""});
+  private emptyUser = {_id: "", type: "", name:""};
+  private logedUser$ = new BehaviorSubject<UserInterface>(this.emptyUser);
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class UserService {
 
   logout() {
     this.authStatus$.next(false);
-    this.logedUser$.next({_id: "", type: ""});
+    this.logedUser$.next(this.emptyUser);
   }
 
   login(user: string, pass: string) {

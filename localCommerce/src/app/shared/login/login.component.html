@@ -18,6 +18,10 @@
 </ng-template>
 
 <ng-template #logedIn>
-    <p>{{this.user!._id}}</p>
-    <button (click)="logout()">Log out</button>
+    <section class="profile">
+        <p class="user text-center">{{this.user!.name}}</p>
+        <button class="pf-button lc-button"  (click)="goTo('profile')" >Perfil</button>
+        <button *ngIf="user?.commerce" class="pf-button lc-button"  (click)="goTo('commerce')">Mi comercio</button>
+        <button class="logout-btn lc-button" (click)="logout()">Log out</button>
+    </section>
 </ng-template>

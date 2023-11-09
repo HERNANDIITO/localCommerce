@@ -20,6 +20,8 @@ form {
         #user {
             border-bottom-left-radius: 0;
             border-bottom-width: 1px;
+            border-top-left-radius: 0;
+
         }
         
         #pass {
@@ -32,9 +34,49 @@ form {
         color: var(--c60);
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
     }
 
 }
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 302px;
+    border: 2.5px solid var(--c10);
+    background-color: var(--c30);
+    position: relative;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius:  1rem;
+
+    .pf-button, .logout-btn, .user {
+        padding: .25rem 0;
+    }
+
+    .user {
+        border-bottom: 2.5px solid var(--c10);
+        margin: 0 !important;
+    }
+
+    .pf-button {
+        border-radius: 0;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none;
+    }
+
+    .logout-btn {
+        border: none;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+}
+
+
+.lc-button:not(:hover) {
+    background: var(--c30) !important;
+}
+
 
 .pfp {
     height: 100%;
@@ -43,6 +85,11 @@ form {
         height: 100%;
         padding: 5px;
         cursor: pointer;
+
+        &:hover {
+            filter: drop-shadow(0px 0px 3px var(--c10));
+            transition: all .25s;
+        }
     }
     
     .collapse, .collapsing {

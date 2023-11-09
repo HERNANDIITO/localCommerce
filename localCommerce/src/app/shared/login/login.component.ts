@@ -45,4 +45,8 @@ export class LoginComponent {
     }
   }
 
+  goTo( url: string ) {
+    
+  }
+
 }

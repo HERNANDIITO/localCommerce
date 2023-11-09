@@ -24,15 +24,22 @@ export class MapComponent implements OnInit {
     const myAPIKey = "85201aebfd284ff5b56b7ab88f143aec";
     const mapStyle = "https://maps.geoapify.com/v1/styles/klokantech-basic/style.json";
 
+    const southWest = L.latLng(90, 180);
+    const northEast = L.latLng(-90, -180);
+    const bounds = L.latLngBounds(southWest, northEast);
+
     const initialState = {
-      lng: 11,
-      lat: 49,
+      lng: 20,
+      lat: 45,
       zoom: 4
     };
 
-    const map = new L.Map(this.mapContainer.nativeElement).setView(
+    const map = new L.Map(this.mapContainer.nativeElement, {
+      maxBounds: bounds,
+      minZoom: 4
+    }).setView(
       [initialState.lat, initialState.lng],
-      initialState.zoom
+      initialState.zoom,
     );
 
     const icon = {
@@ -42,6 +49,8 @@ export class MapComponent implements OnInit {
      })
     };
 
+    const layer = new L.TileLayer("https://maps.geoapify.com/v1/styles/klokantech-basic/style.json", { noWrap: true }).addTo(map);
+
     L.marker([38.3964, -0.5255], icon).addTo(map);
     
     map.attributionControl
@@ -49,7 +58,9 @@ export class MapComponent implements OnInit {
 
     L.mapboxGL({
       style: `${mapStyle}?apiKey=${myAPIKey}`,
-      accessToken: "no-token"
+      accessToken: "no-token",
+
+
     }).addTo(map);
   }
 }
