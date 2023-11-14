@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserInterface } from 'src/app/interfaces/user.intarfaces';
@@ -9,10 +9,11 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy, OnInit {
 
   loginSubscription?: Subscription;
   userSubscription?: Subscription;
+  authSubscription?: Subscription;
   user?: UserInterface;
   isLoged = false;
   isCollapsed = true;
@@ -22,7 +23,9 @@ export class LoginComponent {
     pass: new FormControl(null, Validators.required),
   });
   
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    
+  }
 
   logout() {
     this.userService.logout();
@@ -38,8 +41,14 @@ export class LoginComponent {
         if (data) {
           this.isLoged = data.isAuth;
           this.user = data.user;
-          console.log(this.user)
-          this.userSubscription = this.userService.getLogedUser().subscribe();
+
+          this.userSubscription = this.userService.getLogedUser().subscribe(data => {
+            this.user = data;
+          });
+
+          this.authSubscription = this.userService.getAuthStatus().subscribe( data => {
+            this.isLoged = data;
+          })
         }
       })
     }
@@ -47,6 +56,21 @@ export class LoginComponent {
 
   goTo( url: string ) {
     
+  }
+
+  ngOnInit(): void {
+    this.userSubscription = this.userService.getLogedUser().subscribe(data => {
+      this.user = data;
+    });
+
+    this.authSubscription = this.userService.getAuthStatus().subscribe( data => {
+      this.isLoged = data;
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription?.unsubscribe();
+    this.authSubscription?.unsubscribe();
   }
 
 }

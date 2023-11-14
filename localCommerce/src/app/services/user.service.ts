@@ -25,11 +25,11 @@ export class UserService {
   }
 
   getLogedUser() {
-    return this.logedUser$
+    return this.logedUser$.asObservable();
   }
 
   getAuthStatus() {
-    return this.authStatus$
+    return this.authStatus$.asObservable();
   }
 
   logout() {

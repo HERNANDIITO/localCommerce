@@ -154,3 +154,14 @@ p {
         margin: auto !important;
     }
 }
+
+// Modal
+
+.modal-dialog {
+    margin: 5% auto !important;
+    
+    .modal-content {
+        padding: 2rem 0;
+        background-color: var(--c60);
+    }
+}

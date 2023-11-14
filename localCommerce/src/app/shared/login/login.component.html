@@ -1,24 +1,21 @@
-<div class="pfp">
-    <img class="user-img" src="/assets/icons/user.png" alt="" (click)="collapse.toggle()"
-        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" >
-    
-    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-        <ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut"></ng-container>
-    </div>
+<div class="login">    
+    <ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut"></ng-container>
 </div>
 
 <ng-template #logedOut>
     <form [formGroup]="loginForm" (submit)="login()">
+        <h1 class="text-center">Inicio de sesión</h1>
         <div class="inputs">
             <input id="user" #user class="lc-input" formControlName="user" type="text"     placeholder="Usuario">
             <input id="pass" #pass class="lc-input" formControlName="pass" type="password" placeholder="Contraseña">
+            <button class="lc-button">Log in</button>
         </div>
-        <button class="lc-button">Log in</button>
     </form>
 </ng-template>
 
 <ng-template #logedIn>
     <section class="profile">
+        <h1 class="text-center">Perfil</h1>
         <p class="user text-center">{{this.user!.name}}</p>
         <button class="pf-button lc-button"  (click)="goTo('profile')" >Perfil</button>
         <button *ngIf="user?.commerce" class="pf-button lc-button"  (click)="goTo('commerce')">Mi comercio</button>

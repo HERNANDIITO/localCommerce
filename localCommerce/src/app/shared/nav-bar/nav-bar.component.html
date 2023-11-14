@@ -1,4 +1,4 @@
-<nav>
+<nav [ngClass]="{nabvar_bg: scrolled}"> 
     <ul>
         <ng-container *ngFor="let route of navRoutes">
             <ng-container *ngIf="route.isPublic">
@@ -6,7 +6,9 @@
             </ng-container>
         </ng-container>
     </ul>
-    <lc-login></lc-login>
+    <article (click)="openLoginModal()" class="login">
+        <img src="/assets/icons/user.png" alt="">
+    </article>
 </nav>
 
 <!-- Rutas -->
