@@ -1,3 +1,38 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$localCommerce-primary: mat.define-palette(mat.$indigo-palette);
+$localCommerce-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$localCommerce-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$localCommerce-theme: mat.define-light-theme((
+  color: (
+    primary: $localCommerce-primary,
+    accent: $localCommerce-accent,
+    warn: $localCommerce-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($localCommerce-theme);
+
 * {
     margin: 0 !important;
     color: var(--cFont) !important;
@@ -6,11 +41,13 @@
 // Paleta de color
 
 :root {
-    --c60: #212122;
-    --c30: #1b1b1b;
-    --c10: #56C3d3;
-    --cFont: rgb(236, 234, 222);
+    --c60: #FFFAE8;
+    --c30: #fff0cb;
+    --c10: #56d36b;
+    --cFont: #1b1b1b;
+
 }
+
 
 h1 {
     margin-bottom: 1rem !important;
@@ -23,6 +60,14 @@ h2 {
 
 p {
     margin-bottom: .5rem !important;
+}
+
+.lc-bg {
+    background-color: var(--c60);
+    opacity: 1;
+    background-image:  radial-gradient(var(--c30) 5px, transparent 2px), radial-gradient(var(--c30) 2px, var(--c60) 2px);
+    background-size: 80px 80px;
+    background-position: 0 0,40px 40px;
 }
 
 .lc-button {
@@ -101,6 +146,7 @@ p {
     border-radius: 1.5rem;
     border-radius: 1.5rem;
     padding: 1.5rem !important;
+    filter: drop-shadow(0px 0px 10px rgb(34, 34, 34));
 }
 
 .lc-landscape {
@@ -166,3 +212,5 @@ p {
         background-color: var(--c60);
     }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

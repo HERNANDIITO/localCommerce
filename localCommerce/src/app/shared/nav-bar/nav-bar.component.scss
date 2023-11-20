@@ -5,6 +5,8 @@
 }
 
 nav {
+
+    position: relative;
     
     transition: all .5s;
 
@@ -31,18 +33,30 @@ nav {
     flex-direction: row;
     justify-content: right;
 
+    &::before {
+        content: "";
+        background-image: url("/assets/images/logo.png");
+        background-size: contain;
+        height: 45px; width: 90px;
+        left: 14px; top: 7px;
+        position: absolute;
+        z-index: 1051;
+    }
+
     .login {
-        width: 37px;
         display: flex;
         justify-content: center;
         align-items: center;
-        img {
-            width: 100%;
+        mat-icon {
+            width: auto; height: auto;
+            font-size: 3rem;
             cursor: pointer;
 
             &:hover {
-                filter: drop-shadow(0px 0px 3px var(--c10));
-                transition: all .25s;
+                &::before {
+                    color: var(--c10);
+                    transition: all .25s;
+                }
             }
         }
     }

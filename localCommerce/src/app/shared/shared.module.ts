@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapComponent } from './map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   exports: [
     NavBarComponent,
