@@ -5,10 +5,10 @@
                 <ng-container [ngTemplateOutlet]="route.subsections ? routeWithSubsections : routeWithOutSubsections" [ngTemplateOutletContext]="{route}"></ng-container>
             </ng-container>
         </ng-container>
+        <article (click)="openLoginModal()" class="login">
+            <mat-icon fontIcon="account_circle"></mat-icon>
+        </article>
     </ul>
-    <article (click)="openLoginModal()" class="login">
-        <mat-icon fontIcon="account_circle"></mat-icon>
-    </article>
 </nav>
 
 <!-- Rutas -->

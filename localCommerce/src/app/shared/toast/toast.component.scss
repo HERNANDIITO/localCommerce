@@ -1,0 +1,75 @@
+:host {
+    --danger-color:  #bb2020;
+    --warning-color: #eeb721;
+    --success-color: #42bb20;
+    --font-color: var(--c30);
+}
+  
+.lc-toast{
+  z-index: 1200;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: all;
+  min-width: 360px;
+  
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+
+  &.type-danger {
+    background-color: var(--danger-color) !important;
+  }
+  
+  &.type-warning {
+    background-color: var(--warning-color) !important;
+  }
+  
+  &.type-success {
+    --font-color: var(--c60);
+    background-color: var(--success-color) !important;
+  }
+
+  .toast-button {
+    background-color: transparent;
+    border: none;
+    color: var(--font-color);
+    text-shadow: 2px 2px 2px rgba(100,100,100,.5);
+  }
+
+  .toast-content-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    color: var(--font-color);
+    // text-shadow: 2px 2px 2px rgba(100,100,100,.5);
+
+    .lc-icon {
+      color: var(--font-color) !important;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0 !important;
+      color: var(--font-color) !important;
+
+
+      strong {
+        padding-right: 5px;
+        color: var(--font-color) !important;
+
+      }
+    }
+  }
+}
+
+
+@keyframes shake {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  10% { transform: translateX(-50%) rotate(-1deg); }
+  20% { transform: translateX(-50%) rotate(1deg); }
+  60% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}

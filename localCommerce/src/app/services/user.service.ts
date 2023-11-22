@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
-import { UserInterface } from '../interfaces/user.intarfaces';
+import { RegisterUserInterface, UserInterface } from '../interfaces/user.intarfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
   private baseUrl: string = "http://localhost:3000/api/"
   private authStatus$ = new BehaviorSubject<boolean>(false);
   private emptyUser = {_id: "", type: "", name:""};
@@ -30,6 +29,10 @@ export class UserService {
 
   getAuthStatus() {
     return this.authStatus$.asObservable();
+  }
+
+  register(user: RegisterUserInterface) {
+    return this._httpClient.post<any>( this.baseUrl + "register", user)
   }
 
   logout() {

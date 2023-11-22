@@ -4,3 +4,9 @@ export interface UserInterface {
     name: string;
     commerce?: string;
 }
+
+export interface RegisterUserInterface {
+    name: string;
+    user: string;
+    pass: string;
+}

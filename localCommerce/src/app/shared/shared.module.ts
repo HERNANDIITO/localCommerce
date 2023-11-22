@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ToastComponent } from './toast/toast.component';
 
 
 
@@ -29,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
   exports: [
     NavBarComponent,
     FooterComponent,
-    MapComponent
+    MapComponent,
+
   ]
 })
 export class SharedModule { }

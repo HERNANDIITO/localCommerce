@@ -1,6 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import  * as L from 'leaflet';
 import 'mapbox-gl-leaflet';
+import { Subscription } from 'rxjs';
+import { CommerceInterface } from 'src/app/interfaces/commerce.interfaces';
+import { CommerceService } from 'src/app/services/commerce.service';
 
 @Component({
   selector: 'lc-map',
@@ -8,16 +11,19 @@ import 'mapbox-gl-leaflet';
   styleUrls: ['./map.component.scss']
 })
 
-export class MapComponent implements OnInit {
+export class MapComponent implements OnDestroy {
 
   private map!: L.Map;
 
   @ViewChild('map')
   mapContainer!: ElementRef<HTMLElement>;
+  commerceSubscription?: Subscription;
+  commerces: CommerceInterface[] = []; 
 
-  constructor() { }
+  constructor( private commerceService: CommerceService ) { }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    this.commerceSubscription?.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -42,16 +48,28 @@ export class MapComponent implements OnInit {
       initialState.zoom,
     );
 
-    const icon = {
-      icon: L.icon({
-        iconSize: [ 22.4, 32 ],
-        iconUrl: "assets/map-icons/default.png",
-     })
-    };
+    this.commerceSubscription = this.commerceService.getCommerces().subscribe( data => {
+      this.commerces = data as CommerceInterface[];
+      this.commerces.forEach(commerce => {
+        console.log(commerce);
+        const icon = {
+          icon: L.icon({
+            iconSize: [ 22.4, 32 ],
+            iconUrl: "assets/images/map-icons/" + commerce.type + ".png",
+          })
+        };
+        const marker = L.marker([commerce.lat, commerce.long], icon).addTo(map);
+        const popUp = L.popup()
+          .setLatLng([commerce.lat, commerce.long])
+          .setContent(`<h1>${commerce.name}</h1><p>${commerce.desc}</p>`);
+          
+        marker.bindPopup(popUp).openPopup();
+      });
+    })
+    
 
-    const layer = new L.TileLayer("https://maps.geoapify.com/v1/styles/klokantech-basic/style.json", { noWrap: true }).addTo(map);
+    new L.TileLayer("https://maps.geoapify.com/v1/styles/klokantech-basic/style.json", { noWrap: true }).addTo(map);
 
-    L.marker([38.3964, -0.5255], icon).addTo(map);
     
     map.attributionControl
       .setPrefix("");

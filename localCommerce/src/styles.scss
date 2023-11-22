@@ -33,9 +33,9 @@ $localCommerce-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($localCommerce-theme);
 
-* {
-    margin: 0 !important;
+*:not(img) {
     color: var(--cFont) !important;
+    font-family: "Arimo";
 }
 
 // Paleta de color
@@ -43,19 +43,34 @@ $localCommerce-theme: mat.define-light-theme((
 :root {
     --c60: #FFFAE8;
     --c30: #fff0cb;
-    --c10: #56d36b;
+    --c10: #42bb20;
     --cFont: #1b1b1b;
 
 }
 
+.lc-link {
+    color: var(--c10) !important;
+    cursor: pointer;
+
+    &:hover {
+
+    }
+}
 
 h1 {
-    margin-bottom: 1rem !important;
     color: var(--c10) !important;
+    font-family: "Bebas Neue";
+    font-size: 5rem !important;
+    line-height: 85% !important;
 }
 
 h2 {
+    font-family: "Playfair Display Semibold";
     margin-bottom: .5rem !important;
+}
+
+label {
+    font-family: "Playfair Display Semibold";
 }
 
 p {
@@ -73,7 +88,7 @@ p {
 .lc-button {
     color: var(--c10) !important;
     border: 2.5px solid var(--c10);
-    background-color: transparent;
+    background-color: var(--c30);
     padding: 1rem;
     border-radius: 1rem;
 
@@ -88,7 +103,7 @@ p {
 
 .lc-input {
     position: relative;
-    background-color: var(--c30);
+    background-color: var(--c60);
     color: var(--c10);
     border: 3px solid var(--c10);
     border-radius: 1rem;
@@ -128,7 +143,7 @@ p {
 
     &::after {
         content: "";
-        background-image: url(assets/icons/search.png);
+        background-image: url(assets/images/icons/search.png);
         position: absolute;
         height: 20px;
         z-index: 10;
@@ -156,6 +171,11 @@ p {
 }
 
 // LEAFLET
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background-color: var(--c30) !important;
+}
+
 
 .leaflet-bar {
     border: none !important;
@@ -209,8 +229,6 @@ p {
     
     .modal-content {
         padding: 2rem 0;
-        background-color: var(--c60);
+        background-color: var(--c30);
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

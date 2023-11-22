@@ -1,0 +1,20 @@
+<ngb-toast #toast
+  class="toast"
+  [autohide]="!!toastOpt.autoClose"
+  [delay]="toastOpt.delay!"
+  class="toast-container position-fixed m-auto lc-toast type-{{toastOpt.type}}"
+  (hidden)="closeToast()"
+  *ngIf="toastVisible">
+  <div class="toast-content-container">
+    <p>
+      <mat-icon class="lc-icon" *ngIf="toastOpt.type == 'standard'" fontIcon="info"></mat-icon>
+      <mat-icon class="lc-icon" *ngIf="toastOpt.type == 'danger'"   fontIcon="dangerous"></mat-icon>
+      <mat-icon class="lc-icon" *ngIf="toastOpt.type == 'warning'"  fontIcon="warning"></mat-icon>
+      <mat-icon class="lc-icon" *ngIf="toastOpt.type == 'success'"  fontIcon="done"></mat-icon>
+
+      <strong>{{toastOpt.toastTitle}}{{toastOpt.toastMsg ? ': ' : ''}}</strong>
+      {{toastOpt.toastMsg}}
+    </p>
+    <button *ngIf="toastOpt.closeButton" class="toast-button" (click)="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</ngb-toast>

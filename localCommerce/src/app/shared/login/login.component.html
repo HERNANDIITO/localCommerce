@@ -1,24 +1,50 @@
 <div class="login">    
-    <ng-container [ngTemplateOutlet]=" isLoged ? logedIn : logedOut"></ng-container>
+    <ng-container [ngTemplateOutlet]="isLoged ? profile : logedOut"></ng-container>
 </div>
 
 <ng-template #logedOut>
+    <ng-template [ngTemplateOutlet]="wantRegister ? signInMenu : logInMenu"></ng-template>
+</ng-template>
+
+<ng-template #profile>
+    <section class="profile">
+        <h1 class="text-center">Perfil</h1>
+        <h2 class="user text-center">{{this.user!.name}}</h2>
+        <div class="buttons">
+            <button class="pf-button lc-button" (click)="goTo('profile')" >Perfil</button>
+            <button class="pf-button lc-button" *ngIf="user?.commerce"  (click)="goTo('commerce')">Mi comercio</button>
+            <button class="logout-btn lc-button" (click)="logout()">Log out</button>
+        </div>
+        <p *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('afiliar')" class="lc-link">Inscríbete aquí</a></p>
+    </section>
+</ng-template>
+
+<ng-template #logInMenu>
     <form [formGroup]="loginForm" (submit)="login()">
         <h1 class="text-center">Inicio de sesión</h1>
         <div class="inputs">
+            <label for="user">Usuario</label>
             <input id="user" #user class="lc-input" formControlName="user" type="text"     placeholder="Usuario">
+            <label for="user">Contraseña</label>
             <input id="pass" #pass class="lc-input" formControlName="pass" type="password" placeholder="Contraseña">
-            <button class="lc-button">Log in</button>
+            <button class="lc-button">Iniciar sesión</button>
+            <p>¿Todavía no tienes cuenta? <a (click)="wantRegister = true" class="lc-link">Regístrate aquí</a></p>
         </div>
     </form>
 </ng-template>
 
-<ng-template #logedIn>
-    <section class="profile">
-        <h1 class="text-center">Perfil</h1>
-        <p class="user text-center">{{this.user!.name}}</p>
-        <button class="pf-button lc-button"  (click)="goTo('profile')" >Perfil</button>
-        <button *ngIf="user?.commerce" class="pf-button lc-button"  (click)="goTo('commerce')">Mi comercio</button>
-        <button class="logout-btn lc-button" (click)="logout()">Log out</button>
-    </section>
+<ng-template #signInMenu>
+    <form [formGroup]="regForm" (submit)="register()">
+        <h1 class="text-center">Registro</h1>
+        <div class="inputs">
+            <label for="user">Nombre</label>
+            <input id="user" #name class="lc-input" formControlName="name" type="text"     placeholder="Nombre">
+            <label for="user">Usuario</label>
+            <input id="user" #user class="lc-input" formControlName="user" type="text"     placeholder="Usuario">
+            <label for="user">Contraseña</label>
+            <input id="pass" #pass class="lc-input" formControlName="pass" type="password" placeholder="Contraseña">
+            <button class="lc-button">Regístrate</button>
+            <p>¿Ya tienes una cuenta? <a (click)="wantRegister = false" class="lc-link">Inicia sesión aquí</a></p>
+        </div>
+    </form>
 </ng-template>

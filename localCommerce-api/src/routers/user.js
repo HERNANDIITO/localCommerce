@@ -35,4 +35,20 @@ router.post('/api/login', async (req, res) => {
     }
 });
 
+router.post('/api/register', async (req, res) => {
+
+    const user = req.body.user;
+    const pass = req.body.pass;
+    const name = req.body.name;
+
+    const data = await User.exists({user:user});
+
+    if ( !data ) {
+        const newUser = await User.create({user: user, pass:pass, type:"usu", name: name});
+        res.status(200).send(newUser);
+    } else {
+        res.status(200).send({error: "Ya existe un usuario llamado: " + user});
+    }
+});
+
 module.exports = router;

@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { UserInterface } from 'src/app/interfaces/user.intarfaces';
+import { RegisterUserInterface, UserInterface } from 'src/app/interfaces/user.intarfaces';
 import { UserService } from 'src/app/services/user.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'lc-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnDestroy, OnInit {
   userSubscription?: Subscription;
   authSubscription?: Subscription;
   user?: UserInterface;
+  wantRegister = false;
   isLoged = false;
   isCollapsed = true;
 
@@ -22,8 +24,14 @@ export class LoginComponent implements OnDestroy, OnInit {
     user: new FormControl(null, Validators.required),
     pass: new FormControl(null, Validators.required),
   });
+
+  regForm = new FormGroup({
+    user: new FormControl(null, Validators.required),
+    name: new FormControl(null, Validators.required),
+    pass: new FormControl(null, Validators.required),
+  });
   
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private toastService: ToastService) {
     
   }
 
@@ -39,6 +47,10 @@ export class LoginComponent implements OnDestroy, OnInit {
     if ( user && pass ) {
       this.loginSubscription = this.userService.login(user, pass).subscribe( data => {
         if (data) {
+          this.toastService.openToast({
+            toastTitle: 'Sesión iniciada con éxito',
+            type: 'success'
+          })
           this.isLoged = data.isAuth;
           this.user = data.user;
 
@@ -49,9 +61,65 @@ export class LoginComponent implements OnDestroy, OnInit {
           this.authSubscription = this.userService.getAuthStatus().subscribe( data => {
             this.isLoged = data;
           })
+        } else {
+          this.toastService.openToast({
+            toastTitle: 'Error',
+            toastMsg: "Usuario o contraseña incorrecto",
+            type: 'danger'
+          })
         }
       })
     }
+  }
+
+  register() {
+
+    let error = false;
+
+    const nameValue = this.regForm.value.name;
+    const userValue = this.regForm.value.user;
+    const passValue = this.regForm.value.pass;
+
+    if ( !(nameValue && userValue && passValue) ) {
+      return
+    }
+
+    const user: RegisterUserInterface = {
+      name: nameValue,
+      user: userValue,
+      pass: passValue
+    }
+
+    this.loginSubscription = this.userService.register(user).subscribe( data => {
+      if(data.error) {
+        error = true;
+        this.toastService.openToast({
+          toastTitle: 'Error',
+          toastMsg: data.error,
+          type: 'danger'
+        })
+      } else {
+        this.userService.login(user.user, user.pass).subscribe( data => {
+          if (data) {
+            this.toastService.openToast({
+              toastTitle: 'Error',
+              toastMsg: "Usuario registrado con éxito",
+              type: 'success'
+            })
+            this.isLoged = data.isAuth;
+            this.user = data.user;
+    
+            this.userSubscription = this.userService.getLogedUser().subscribe(data => {
+              this.user = data;
+            });
+    
+            this.authSubscription = this.userService.getAuthStatus().subscribe( data => {
+              this.isLoged = data;
+            })
+          }
+        })
+      }
+    })
   }
 
   goTo( url: string ) {
