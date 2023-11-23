@@ -102,8 +102,7 @@ export class LoginComponent implements OnDestroy, OnInit {
         this.userService.login(user.user, user.pass).subscribe( data => {
           if (data) {
             this.toastService.openToast({
-              toastTitle: 'Error',
-              toastMsg: "Usuario registrado con éxito",
+              toastTitle: 'Usuario registrado con éxito',
               type: 'success'
             })
             this.isLoged = data.isAuth;
