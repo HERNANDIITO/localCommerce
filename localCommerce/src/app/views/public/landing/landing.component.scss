@@ -8,12 +8,6 @@ main {
     position: relative;
     background-color: var(--c60);
 
-    .lc-landscape {
-        overflow: hidden;
-        height: 100vh;
-        border-bottom: 2.5px solid var(--c10);
-    }
-
     article:not(.lc-landscape) {
 
         filter: drop-shadow(0px 0px 0px 5px black);

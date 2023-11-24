@@ -57,6 +57,10 @@ $localCommerce-theme: mat.define-light-theme((
     }
 }
 
+html {
+    background-color: var(--c30);
+}
+
 h1 {
     color: var(--c10) !important;
     font-family: "Bebas Neue";
@@ -165,6 +169,9 @@ p {
 }
 
 .lc-landscape {
+    overflow: hidden;
+    height: 100vh;
+    border-bottom: 2.5px solid var(--c10);
     img {
         width: 100%;
     }

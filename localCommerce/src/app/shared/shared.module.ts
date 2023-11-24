@@ -5,10 +5,9 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapComponent } from './map/map.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
-import { ToastComponent } from './toast/toast.component';
 
 
 
@@ -23,7 +22,6 @@ import { ToastComponent } from './toast/toast.component';
     CommonModule,
     RouterModule,
     NgbModule,
-    FormsModule,
     ReactiveFormsModule,
     MatIconModule
   ],
@@ -31,6 +29,7 @@ import { ToastComponent } from './toast/toast.component';
     NavBarComponent,
     FooterComponent,
     MapComponent,
+    LoginComponent
 
   ]
 })

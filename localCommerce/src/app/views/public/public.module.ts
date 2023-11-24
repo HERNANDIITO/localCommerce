@@ -8,6 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 import { JoinUsComponent } from './join-us/join-us.component';
 import { HelpComponent } from './help/help.component';
 import { SupportComponent } from './support/support.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SupportComponent } from './support/support.component';
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PublicModule { }

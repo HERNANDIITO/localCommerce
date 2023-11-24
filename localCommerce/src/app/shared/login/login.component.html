@@ -3,7 +3,7 @@
 </div>
 
 <ng-template #logedOut>
-    <ng-template [ngTemplateOutlet]="wantRegister ? signInMenu : logInMenu"></ng-template>
+    <ng-container [ngTemplateOutlet]="wantRegister ? signInMenu : logInMenu"></ng-container>
 </ng-template>
 
 <ng-template #profile>

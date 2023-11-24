@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastComponent } from './shared/toast/toast.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbToastModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

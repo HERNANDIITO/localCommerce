@@ -1,0 +1,21 @@
+:host {
+    position: relative;
+}
+
+.cookies {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    background-color: var(--c30);
+    border-top: 2.5px solid var(--c10);
+    filter: drop-shadow(0px 0px 5px black);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 1.5rem 0;
+
+}
+
