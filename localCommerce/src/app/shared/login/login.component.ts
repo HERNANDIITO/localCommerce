@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { RegisterUserInterface, UserInterface } from 'src/app/interfaces/user.intarfaces';
 import { UserService } from 'src/app/services/user.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'lc-login',
@@ -31,7 +33,7 @@ export class LoginComponent implements OnDestroy, OnInit {
     pass: new FormControl(null, Validators.required),
   });
   
-  constructor(private userService: UserService, private toastService: ToastService) {
+  constructor(private userService: UserService, private toastService: ToastService, private router: Router,private modalService: NgbModal ) {
     
   }
 
@@ -122,7 +124,8 @@ export class LoginComponent implements OnDestroy, OnInit {
   }
 
   goTo( url: string ) {
-    
+    this.router.navigateByUrl(url)
+    this.modalService.dismissAll();
   }
 
   ngOnInit(): void {

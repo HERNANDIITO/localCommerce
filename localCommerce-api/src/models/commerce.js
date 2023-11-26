@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const commerceSchema = new mongoose.Schema({
     name: String,
     desc: String,
+    location: String,
     lat: Number,
     long: Number,
     owner: String,

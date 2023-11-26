@@ -1,10 +1,11 @@
 export interface CommerceInterface {
-    name: string
-    desc: string
-    lat: number
-    long: number
-    owner: string
-    type: string
+    name:     string,
+    desc:     string,
+    location: string,
+    lat:      number,
+    long:     number,
+    type:     string,
+    owner:    string,
 }
 
 

@@ -15,7 +15,7 @@
             <button class="pf-button lc-button" *ngIf="user?.commerce"  (click)="goTo('commerce')">Mi comercio</button>
             <button class="logout-btn lc-button" (click)="logout()">Log out</button>
         </div>
-        <p *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('afiliar')" class="lc-link">Inscríbete aquí</a></p>
+        <p *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('join-us')" class="lc-link">Inscríbete aquí</a></p>
     </section>
 </ng-template>
 

@@ -31,11 +31,11 @@
                 <label for="name">Nombre</label>
                 <input id="name" #name class="lc-input" formControlName="name" type="text"     placeholder="Nombre">
                 
-                <label for="user">Usuario</label>
-                <input id="user" #user class="lc-input" formControlName="user" type="text"     placeholder="Usuario">
+                <label for="desc">Descripción</label>
+                <textarea id="desc" #desc class="lc-input" formControlName="desc" type="text"     placeholder="Descripción"></textarea>
                 
-                <label for="pass">Contraseña</label>
-                <input id="pass" #pass class="lc-input" formControlName="pass" type="password" placeholder="Contraseña">
+                <label for="location">Dirección</label>
+                <input id="location" #location class="lc-input" formControlName="location" type="text" placeholder="Dirección">
                 
                 <button [disabled]="!isLoged" class="lc-button">Regístrate</button>
             </form>
