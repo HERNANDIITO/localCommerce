@@ -1,1 +1,41 @@
-<p>support works!</p>
+<main class="lc-bg">
+    <article class="lc-landscape">
+        <img src="/assets/images/landscape.png" alt="">
+    </article>
+    <article class="row justify-content-around lc-card">
+        <section class="col-12">
+            <h1 class="text-center" >Contacto</h1>
+            <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, cupiditate.</p>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <strong>Utiliza las siguientes vías de contacto o rellena el formulario</strong>
+                    <dl>
+                        <dt>Vía E-Mail</dt>
+                        <dd>support&#64;vili.com</dd>
+                        <dt>Redes sociales</dt>
+                        <dd>&#64;vili</dd>
+                        <dt>Teléfono</dt>
+                        <dd>965293721</dd>
+                    </dl>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form [formGroup]="supportForm" (submit)="send()">
+                        <label for="name">Nombre</label>
+                        <input id="name" #name class="lc-input" formControlName="name" type="text"     placeholder="Nombre">
+                        
+                        <label for="desc">E-Mail</label>
+                        <textarea id="desc" #desc class="lc-input" formControlName="desc" type="text"     placeholder="Descripción"></textarea>
+                        
+                        <label for="location">Teléfono</label>
+                        <input id="location" #location class="lc-input" formControlName="location" type="text" placeholder="Dirección">
+
+                        <label for="location">Mensaje</label>
+                        <textarea id="location" #location class="lc-input" formControlName="location" type="text" placeholder="Dirección"></textarea>
+                        
+                        <button class="lc-button">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>

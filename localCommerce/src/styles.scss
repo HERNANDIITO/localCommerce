@@ -81,6 +81,16 @@ p {
     margin-bottom: .5rem !important;
 }
 
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: relative;
+    background-color: var(--c60);
+}
+
 .lc-bg {
     background-color: var(--c60);
     opacity: 1;
