@@ -6,6 +6,9 @@ export interface CommerceInterface {
     long:     number,
     type:     string,
     owner:    string,
-}
+};
 
-
+export interface CoordsInterface {
+    lat: number,
+    lon: number
+};

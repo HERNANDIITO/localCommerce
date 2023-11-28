@@ -23,22 +23,27 @@
         <h2 class="text-center my-0" >Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
         <section class="join">
             <ng-container *ngIf="!isLoged">
-                <div class="blurry">
-                    <button class="lc-button" (click)="openLoginModal()" >Inicia sesión</button>
+                <div class="login">
+                    <div class="blurry-btn">
+                        <button class="lc-button" (click)="openLoginModal()" >Inicia sesión</button>
+                    </div>
                 </div>
             </ng-container>
-            <form [formGroup]="regForm" (submit)="register()" [ngClass]="{ blurryForm: !isLoged }">
-                <label for="name">Nombre</label>
-                <input id="name" #name class="lc-input" formControlName="name" type="text"     placeholder="Nombre">
-                
-                <label for="desc">Descripción</label>
-                <textarea id="desc" #desc class="lc-input" formControlName="desc" type="text"     placeholder="Descripción"></textarea>
-                
-                <label for="location">Dirección</label>
-                <input id="location" #location class="lc-input" formControlName="location" type="text" placeholder="Dirección">
-                
-                <button [disabled]="!isLoged" class="lc-button">Regístrate</button>
-            </form>
+            <div class="form-map row" [ngClass]="{blurry: !isLoged}" >
+                <form class="col-12 col-md-4" [formGroup]="regForm" (submit)="register()" [ngClass]="{ blurryForm: !isLoged }">
+                    <label for="name">Nombre</label>
+                    <input id="name" #name class="lc-input" formControlName="name" type="text"     placeholder="Nombre">
+                    
+                    <label for="desc">Descripción</label>
+                    <textarea id="desc" #desc class="lc-input" formControlName="desc" type="text"     placeholder="Descripción"></textarea>
+                    
+                    <label for="location">Dirección</label>
+                    <input id="location" #location (change)="updatePreview()" class="lc-input" formControlName="location" type="text" placeholder="Dirección">
+                    
+                    <button [disabled]="!isLoged" class="lc-button">Regístrate</button>
+                </form>
+                <lc-map class="col-12 col-md-8" [preview]="preview" ></lc-map>
+            </div>
         </section>
     </article>
 </main>

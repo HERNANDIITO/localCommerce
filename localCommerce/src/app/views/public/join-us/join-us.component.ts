@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
-import { CommerceInterface } from 'src/app/interfaces/commerce.interfaces';
+import { CommerceInterface, CoordsInterface } from 'src/app/interfaces/commerce.interfaces';
 import { UserInterface } from 'src/app/interfaces/user.intarfaces';
 import { CommerceService } from 'src/app/services/commerce.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -20,6 +20,8 @@ export class JoinUsComponent implements OnInit, OnDestroy {
   isLogedSubscription?: Subscription;
   userSubscription?: Subscription;
   commerceSubscription?: Subscription;
+  coordsSubscription?: Subscription;
+  preview: string = "Madrid";
 
   regForm = new FormGroup({
     name:     new FormControl(null, Validators.required),
@@ -43,6 +45,13 @@ export class JoinUsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.isLogedSubscription?.unsubscribe();
     this.userSubscription?.unsubscribe();
+    this.commerceSubscription?.unsubscribe();
+    this.coordsSubscription?.unsubscribe();
+  }
+
+  updatePreview() {
+    if ( this.regForm.value.location )
+    this.preview = this.regForm.value.location;
   }
   
   register() {
@@ -57,22 +66,27 @@ export class JoinUsComponent implements OnInit, OnDestroy {
         type: '',
         owner: this.user._id
       }
-      console.log(newCommerce)
+      
+      this.coordsSubscription = this.commerceService.getCoords( this.regForm.value.location ).subscribe( data => {
+        newCommerce.lat = data.results[0].lat as number;
+        newCommerce.long = data.results[0].lon as number;
 
-      this.commerceSubscription = this.commerceService.addCommerce(newCommerce).subscribe( data => {
-        if (data.error) {
-          this.toastService.openToast({
-            toastTitle: 'Error',
-            toastMsg: data.error,
-            type: 'danger'
-          })
-        } else {
-          this.toastService.openToast({
-            toastTitle: 'Comercio afiliado con éxito',
-            type: 'success'
-          })
-        }
+        this.commerceSubscription = this.commerceService.addCommerce(newCommerce).subscribe( data => {
+          if (data.error) {
+            this.toastService.openToast({
+              toastTitle: 'Error',
+              toastMsg: data.error,
+              type: 'danger'
+            })
+          } else {
+            this.toastService.openToast({
+              toastTitle: 'Comercio afiliado con éxito',
+              type: 'success'
+            })
+          }
+        })
       })
+      
     } else {
       this.toastService.openToast({
         toastTitle: 'Error',

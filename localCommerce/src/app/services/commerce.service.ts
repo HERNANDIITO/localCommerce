@@ -18,4 +18,9 @@ export class CommerceService {
   addCommerce(newCommerce: CommerceInterface) {
     return this._httpClient.post<any>( this.baseUrl + "addCommerce", newCommerce)
   }
+
+  getCoords( location: string ) {
+    return this._httpClient.get<any>(`https://api.geoapify.com/v1/geocode/search?text=${location}&limit=1&type=amenity&format=json&apiKey=85201aebfd284ff5b56b7ab88f143aec`
+    )
+  }
 }

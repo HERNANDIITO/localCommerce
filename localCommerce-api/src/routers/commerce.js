@@ -1,4 +1,5 @@
 const express = require('express');
+const User = require('../models/user');
 const Commerce = require('../models/commerce');
 const router = new express.Router();
 
@@ -14,7 +15,6 @@ router.get('/api/getCommerces', async (req, res) => {
 router.post('/api/addCommerce', async (req, res) => {
 
     console.log(req.body)
-    console.log(req)
     
     const newCommerce = {
         name:     req.body.name,
@@ -26,9 +26,14 @@ router.post('/api/addCommerce', async (req, res) => {
         owner:    req.body.owner,
     }
 
+    if ( newCommerce.type == '' ) { newCommerce.type = 'default' };
+
     const alreadyAdded = await Commerce.exists({name:newCommerce.name});
 
     if ( !alreadyAdded ) {
+        const owner = await User.findOne({_id: newCommerce.owner});
+        owner.overwrite({type: "com"})
+        
         const addedCommerce = await Commerce.create(newCommerce);
         res.status(200).send(addedCommerce);
     } else {
