@@ -1,0 +1,26 @@
+article {
+    display: flex;
+    flex-flow: row;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--c30);
+
+    .icon {
+        width:  64px;
+        height: 64px;
+    }
+
+    .info {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+
+
+        .offer {
+            color: var(--c10) !important;
+        }
+
+        .name {
+        }
+    }
+}

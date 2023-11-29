@@ -7,7 +7,8 @@ const commerceSchema = new mongoose.Schema({
     lat: Number,
     long: Number,
     owner: String,
-    type: String
+    type: String,
+    offer: String
 });
 
 const Commerce = mongoose.model('Commerce', commerceSchema);

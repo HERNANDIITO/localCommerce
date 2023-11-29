@@ -9,6 +9,8 @@ import { JoinUsComponent } from './join-us/join-us.component';
 import { HelpComponent } from './help/help.component';
 import { SupportComponent } from './support/support.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommercesComponent } from './commerces/commerces.component';
+import { TicketComponent } from './commerces/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LandingComponent,
     JoinUsComponent,
     HelpComponent,
-    SupportComponent
+    SupportComponent,
+    CommercesComponent,
+    TicketComponent
   ],
   imports: [
     CommonModule,

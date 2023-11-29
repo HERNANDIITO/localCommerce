@@ -1,0 +1,15 @@
+<main class="lc-bg">
+    <article class="lc-landscape">
+        <img src="/assets/images/landscape.png" alt="">
+    </article>
+    <article class="lc-container row">
+        <div class="col-3">
+            <ng-container *ngFor="let commerce of commerces">
+                <lc-ticket [commerce]="commerce"></lc-ticket>
+            </ng-container>
+        </div>
+        <div class="col-9">
+            <lc-map></lc-map>
+        </div>
+    </article>
+</main>

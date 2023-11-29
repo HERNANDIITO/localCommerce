@@ -6,6 +6,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HelpComponent } from './help/help.component';
 import { SupportComponent } from './support/support.component';
 import { JoinUsComponent } from './join-us/join-us.component';
+import { CommercesComponent } from './commerces/commerces.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
       },
       {
         path: 'help', component: HelpComponent
+      },
+      {
+        path: 'commerces', component: CommercesComponent
       }
     ]
   }

@@ -6,6 +6,7 @@ export interface CommerceInterface {
     long:     number,
     type:     string,
     owner:    string,
+    offer?:    string
 };
 
 export interface CoordsInterface {

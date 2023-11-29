@@ -25,6 +25,11 @@ let navRoutesJSON =
     label: "Ayuda",
     url: "help",
     isPublic: true
+  },
+  {
+    label: "Comercios",
+    url: "commerces",
+    isPublic: true
   }
 ]
 
