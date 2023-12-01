@@ -6,4 +6,11 @@
     lc-ticket {
         margin-bottom: 1rem;
     }
+
+    .tickets {
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-flow: column;
+    }
 }

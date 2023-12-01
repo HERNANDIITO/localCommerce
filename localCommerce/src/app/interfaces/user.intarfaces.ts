@@ -2,6 +2,7 @@ export interface UserInterface {
     _id: string;
     type: string;
     name: string;
+    user: string;
     commerce?: string;
 }
 

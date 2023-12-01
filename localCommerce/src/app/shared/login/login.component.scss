@@ -1,3 +1,13 @@
+:host {
+    display: flex;
+    margin: auto;
+}
+
+.login {
+    width: 85%;
+    margin: auto;
+}
+
 .inputs {
     display: flex;
     flex-direction: column;
@@ -17,21 +27,31 @@
 }
 
 .profile {
-    .buttons {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-around;
-        align-items: center;
-        margin-bottom: .5rem;
-        
-        button {
-            width: fit-content;
-            min-width: 150px;
-            height: fit-content;
-        }
+
+    .account {
+        justify-content: space-between;
     }
-    p {
-        margin-bottom: -.5rem !important;
-        text-align: center;
+
+    .logoutButton {
+        width: 30% !important;
+        margin: auto !important;
+    }
+
+    .col {
+        background-color: rgba(0, 0, 0, 0.075);
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .pswButton {
+        padding: .5rem 1rem;
+        width: 100%;
+    }
+
+
+    input {
+        width: 100%;
+        margin-bottom: .5rem;
     }
 }

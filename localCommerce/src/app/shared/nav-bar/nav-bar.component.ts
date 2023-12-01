@@ -56,10 +56,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   openLoginModal() {
-    const loginModal = this.modalService.open(LoginComponent);
-    loginModal.dismissed.subscribe(data => {
-      console.log(this.user);
-    })
+    const loginModal = this.modalService.open(LoginComponent, {size: "lg"});
+    loginModal.dismissed.subscribe(data => {})
   }
   
   ngOnInit(): void {

@@ -9,7 +9,14 @@ import { RegisterUserInterface, UserInterface } from '../interfaces/user.intarfa
 export class UserService {
   private baseUrl: string = "http://localhost:3000/api/"
   private authStatus$ = new BehaviorSubject<boolean>(false);
-  private emptyUser = {_id: "", type: "", name:""};
+
+  private emptyUser: UserInterface = {
+    _id: "",
+    type: "",
+    name: "",
+    user: ''
+  };
+  
   private logedUser$ = new BehaviorSubject<UserInterface>(this.emptyUser);
 
   constructor(private _httpClient: HttpClient) { }

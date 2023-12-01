@@ -8,14 +8,25 @@
 
 <ng-template #profile>
     <section class="profile">
-        <h1 class="text-center">Perfil</h1>
-        <h2 class="user text-center">{{this.user!.name}}</h2>
-        <div class="buttons">
-            <button class="pf-button lc-button" (click)="goTo('profile')" >Perfil</button>
-            <button class="pf-button lc-button" *ngIf="user?.commerce"  (click)="goTo('commerce')">Mi comercio</button>
-            <button class="logout-btn lc-button" (click)="logout()">Log out</button>
+        <h1 class="text-center">Cuenta</h1>
+        <div class="account row mb-4">
+            <div class="col col-12 col-md-5">
+                <h2 class="text-center">Datos de la cuenta</h2>
+                <p class="lc-input">{{user?.name}}</p>
+                <p class="lc-input">{{user?.user}}</p>
+            </div>
+            <div class="col col-12 col-md-5">
+                <h2 class="text-center" >Cambio de contraseña</h2>
+                <input class="lc-input" placeholder="Contraseña actual"    type="password" name="" id="">
+                <input class="lc-input" placeholder="Nueva contraseña"     type="password" name="" id="">
+                <input class="lc-input" placeholder="Confirmar contraseña" type="password" name="" id="">
+                <button class="lc-button pswButton">Cambiar contraseña</button>
+            </div>
         </div>
-        <p *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('join-us')" class="lc-link">Inscríbete aquí</a></p>
+        <div class="row">
+            <button (click)="logout()" class="lc-button logoutButton">Cerrar sesión</button>
+        </div>
+        <p class="text-center" *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('join-us')" class="lc-link">Inscríbete aquí</a></p>
     </section>
 </ng-template>
 

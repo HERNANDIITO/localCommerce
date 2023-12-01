@@ -28,7 +28,7 @@ router.post('/api/login', async (req, res) => {
     const pass = req.body.pass;
 
     try {
-        const foundUser = await User.findOne({user: user, pass:pass}, {user: 0, pass: 0})
+        const foundUser = await User.findOne({user: user, pass:pass}, {pass: 0})
         res.status(200).send(foundUser);
     } catch (error) {
         res.status(500).send(error);    
