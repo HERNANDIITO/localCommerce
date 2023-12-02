@@ -12,6 +12,30 @@ router.get('/api/getCommerces', async (req, res) => {
     }
 })
 
+router.post('/api/updateCommerce', async (req, res) => {
+
+    const newCommerce = {
+        name:     req.body.name,
+        desc:     req.body.desc,
+        location: req.body.location,
+        lat:      req.body.lat,
+        long:     req.body.long,
+        type:     req.body.type,
+        owner:    req.body.owner,
+    }
+
+    if ( newCommerce.type == '' ) { newCommerce.type = 'default' };
+
+    const alreadyAdded = await Commerce.exists({owner:newCommerce.owner});
+
+    if ( alreadyAdded ) {
+        Commerce.findOneAndUpdate({name: newCommerce.name}, newCommerce);
+        res.status(200).send(addedCommerce);
+    } else {
+        res.status(200).send({error: "Usted todavía no tiene ningún comercio afiliado."});
+    }
+})
+
 router.post('/api/addCommerce', async (req, res) => {
 
     console.log(req.body)

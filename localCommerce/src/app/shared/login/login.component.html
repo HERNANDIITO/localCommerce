@@ -26,7 +26,7 @@
         <div class="row">
             <button (click)="logout()" class="lc-button logoutButton">Cerrar sesión</button>
         </div>
-        <p class="text-center" *ngIf="!user?.commerce">¿Quieres afiliar tu comercio? <a (click)="goTo('join-us')" class="lc-link">Inscríbete aquí</a></p>
+        <p class="text-center" *ngIf="user?.type != 'com'">¿Quieres afiliar tu comercio? <a (click)="goTo('join-us')" class="lc-link">Inscríbete aquí</a></p>
     </section>
 </ng-template>
 
