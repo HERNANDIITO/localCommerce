@@ -6,6 +6,11 @@ let navRoutesJSON =
     url: ""
   },
   {
+    label: "Comercios",
+    url: "commerces",
+    isPublic: true
+  },
+  {
     label: "Servicios",
     isPublic: true,
     subsections: [
@@ -24,11 +29,6 @@ let navRoutesJSON =
   {
     label: "Ayuda",
     url: "help",
-    isPublic: true
-  },
-  {
-    label: "Comercios",
-    url: "commerces",
     isPublic: true
   }
 ]

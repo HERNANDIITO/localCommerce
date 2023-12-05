@@ -67,11 +67,33 @@ main {
                         resize: none;
                     }
 
-                    button {
+                    .lc-input {
+                        width: 100%;
+                    }
+
+                    button:not(.lc-input) {
                         margin-top: 1rem;
                         padding-top: .5rem;
                         padding-bottom: .5rem;
-                    }              
+                    }   
+                    
+                    .dropdown-menu {
+                        z-index: 3;
+                        background-color: var(--c30);
+
+                        .dropdown-item {
+                            border-radius: 1rem;
+                            margin: 0 !important;
+                            border: 2.5px solid transparent;
+
+                            &:hover {
+                                transition: all .5s;
+                                background-color: var(--c60);
+                                border: 2.5px solid var(--c10);
+                                filter: drop-shadow(0 0 5px var(--c10));
+                            }
+                        }
+                    }
                 }
             }
         }

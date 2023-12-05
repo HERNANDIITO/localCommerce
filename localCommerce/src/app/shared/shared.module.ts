@@ -9,21 +9,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 
-
-
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
     MapComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgbModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     NavBarComponent,

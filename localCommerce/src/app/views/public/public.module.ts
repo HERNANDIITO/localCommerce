@@ -11,6 +11,7 @@ import { SupportComponent } from './support/support.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommercesComponent } from './commerces/commerces.component';
 import { TicketComponent } from './commerces/ticket/ticket.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { TicketComponent } from './commerces/ticket/ticket.component';
     HelpComponent,
     SupportComponent,
     CommercesComponent,
-    TicketComponent
+    TicketComponent,
   ],
   imports: [
     CommonModule,
     PublicRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbDropdownModule
   ]
 })
 export class PublicModule { }

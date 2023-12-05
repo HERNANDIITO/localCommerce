@@ -40,7 +40,7 @@ export class MapComponent implements OnDestroy, OnChanges {
 
       const icon = {
         icon: L.icon({
-          iconSize: [ 22.4, 32 ],
+          iconSize: [ 40, 32 ],
           iconUrl: "assets/images/map-icons/default.png",
         })
       };
@@ -83,7 +83,15 @@ export class MapComponent implements OnDestroy, OnChanges {
           this.markers = L.marker([commerce.lat, commerce.long], icon).addTo(this.map);
           const popUp = L.popup()
             .setLatLng([commerce.lat, commerce.long])
-            .setContent(`<h1>${commerce.name}</h1><p>${commerce.desc}</p>`);
+            .setContent(`
+              <div class="name-container">
+                <div class="image-container">
+                  <img src="/assets/images/icons/${commerce.type}.png">
+                </div>
+                <h1>${commerce.name}</h1>
+              </div>
+              <p>${commerce.desc}</p>
+            `);
             
           this.markers.bindPopup(popUp).openPopup();
         });

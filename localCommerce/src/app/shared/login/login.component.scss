@@ -4,7 +4,7 @@
 }
 
 .login {
-    width: 85%;
+    width: 95%;
     margin: auto;
 }
 
@@ -29,7 +29,7 @@
 .profile {
 
     .account {
-        justify-content: space-between;
+        justify-content: space-between !important;
     }
 
     .logoutButton {
@@ -37,11 +37,12 @@
         margin: auto !important;
     }
 
-    .col {
+    .column {
         background-color: rgba(0, 0, 0, 0.075);
         border-radius: 1rem;
         padding: 1rem;
         margin-top: 1rem;
+        width: 49%;
     }
 
     .pswButton {

@@ -40,6 +40,20 @@
                     <label for="location">Dirección</label>
                     <input id="location" #location (change)="updatePreview()" class="lc-input" formControlName="location" type="text" placeholder="Dirección">
                     
+                    <label for="type"> Tipo de comercio </label>
+                    <div #type placement="top-end" ngbDropdown>
+                        <button type="button" class="lc-input" id="dropdownBasic1" ngbDropdownToggle>
+                            {{selectedType}}
+                        </button>
+                        <div ngbDropdownMenu class="dropdown">
+                            <button (click)="selectedType = 'coffee'"  ngbDropdownItem>Cafetería</button>
+                            <button (click)="selectedType = 'bar'"     ngbDropdownItem>Gastronomía</button>
+                            <button (click)="selectedType = 'books'"   ngbDropdownItem>Librería</button>
+                            <button (click)="selectedType = 'clothes'" ngbDropdownItem>Moda</button>
+                            <button (click)="selectedType = 'fruit'"   ngbDropdownItem>Frutería</button>
+                            <button (click)="selectedType = 'bread'"   ngbDropdownItem>Panadería</button>
+                        </div>
+                    </div>
                     <button [disabled]="!isLoged" class="lc-button">Regístrate</button>
                 </form>
                 <lc-map class="col-12 col-md-8" [preview]="preview" ></lc-map>

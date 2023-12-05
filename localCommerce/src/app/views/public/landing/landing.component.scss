@@ -35,6 +35,42 @@ main {
         }
     }
 
+    .lc-landscape {
+        position: relative;
+        .landscape-text {
+            display: flex;
+            position: absolute;
+            flex-flow: column;
+            width: 100%; height: fit-content;
+
+            top: 35%; left: 50%;
+
+            transform: translateX(-50%) translateY(-50%);
+
+            h1 {
+                text-shadow: 0px 0px 5px black;
+                color: var(--c30) !important;
+                width: 100%;
+                text-align: center; 
+
+                strong {
+                    text-shadow: none !important;
+                }
+            }
+
+            button {
+                margin-top: 1rem !important;
+                display: block;
+                margin: auto;
+                width: fit-content;
+                strong {
+                    font-size: 1.5rem !important;
+                }
+            }
+            
+        }
+    }
+
     lc-map {
         height: 70vh;
     }

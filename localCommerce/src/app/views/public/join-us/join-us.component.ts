@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
-import { CommerceInterface, CoordsInterface } from 'src/app/interfaces/commerce.interfaces';
+import { CommerceInterface } from 'src/app/interfaces/commerce.interfaces';
 import { UserInterface } from 'src/app/interfaces/user.intarfaces';
 import { CommerceService } from 'src/app/services/commerce.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -22,6 +22,7 @@ export class JoinUsComponent implements OnInit, OnDestroy {
   commerceSubscription?: Subscription;
   coordsSubscription?: Subscription;
   preview: string = "Madrid";
+  selectedType = "Selecciona un tipo de local"
 
   regForm = new FormGroup({
     name:     new FormControl(null, Validators.required),
