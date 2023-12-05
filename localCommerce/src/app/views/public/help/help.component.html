@@ -1,11 +1,8 @@
 <main class="lc-bg">
-    <article class="lc-landscape">
-        <img src="/assets/images/landscape.png" alt="">
-    </article>
+
     <article class="content">
         <div class="row justify-content-around">
-            <div class="lc-card col-3">
-                <h1 class="text-center">Inicio</h1>
+            <div class="col-3">
                 <button (click)="selectedHelp = help" *ngFor="let help of helps" class="lc-button text-center" >{{help.title}}</button>
             </div>
             <div class="lc-card col-6">

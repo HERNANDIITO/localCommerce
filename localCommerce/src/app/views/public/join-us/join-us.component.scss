@@ -1,4 +1,6 @@
 main {  
+
+
     article:not(.lc-landscape) {
 
         filter: drop-shadow(0px 0px 0px 5px black);
@@ -11,6 +13,8 @@ main {
             margin: auto !important;
             margin-top: 1.5rem !important;
         }
+        
+
 
         .img-wrapper {
             position: relative;
@@ -100,3 +104,5 @@ main {
     }
 }
     
+
+
