@@ -1,1 +1,33 @@
-<p>help works!</p>
+<main class="lc-bg">
+    <article class="lc-landscape">
+        <img src="/assets/images/landscape.png" alt="">
+    </article>
+    <article>
+        <div class="row mx-auto col-12 col-md-10 justify-content-between">
+            <div class="lc-card row col-3">
+                <h1 class="text-center">Inicio</h1>
+                <button *ngFor="let help of helps" class="lc-button" >{{help.title}}</button>
+            </div>
+            <div class="col-8">
+                <div class="lc-card col-12 text-center">
+                    <h1>Ayuda</h1>
+                    <ng-container [ngTemplateOutlet]="selectedHelp ? sectionSelected : nothingSelected"></ng-container>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+
+<ng-template #nothingSelected>
+    <section class="row">
+        <article *ngFor="let help of helps" class="col-4">
+            <img src="" alt="">
+            <p>{{help.content}}</p>
+        </article>
+    </section>
+</ng-template>
+
+<ng-template #sectionSelected>
+    <h2>{{selectedHelp?.title}}</h2>
+    <p>{{selectedHelp?.content}}</p>
+</ng-template>

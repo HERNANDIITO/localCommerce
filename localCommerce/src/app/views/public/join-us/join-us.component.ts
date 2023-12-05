@@ -22,7 +22,7 @@ export class JoinUsComponent implements OnInit, OnDestroy {
   commerceSubscription?: Subscription;
   coordsSubscription?: Subscription;
   preview: string = "Madrid";
-  selectedType = "Selecciona un tipo de local"
+  selectedType = ""
 
   regForm = new FormGroup({
     name:     new FormControl(null, Validators.required),
@@ -50,9 +50,29 @@ export class JoinUsComponent implements OnInit, OnDestroy {
     this.coordsSubscription?.unsubscribe();
   }
 
+  getLocalTypeString( localType: String ) {
+    switch(localType) {
+      case "coffee":
+        return "Cafetería"
+      case "bar":
+        return "Gastronomía"
+      case "books":
+        return "Librería"
+      case "clothes":
+        return "Tienda de moda"
+      case "fruit":
+        return "Frutería"
+      case "bread":
+        return "Panadería"
+      default:
+        return "Selecciona un tipo de local";
+    }
+  }
+
   updatePreview() {
-    if ( this.regForm.value.location )
-    this.preview = this.regForm.value.location;
+    if ( this.regForm.value.location ) {
+      this.preview = this.regForm.value.location;
+    }
   }
   
   register() {
@@ -64,8 +84,18 @@ export class JoinUsComponent implements OnInit, OnDestroy {
         location: this.regForm.value.location,
         lat: 0,
         long: 0,
-        type: '',
+        type: this.selectedType,
         owner: this.user._id
+      }
+
+      if (this.selectedType == "") {
+        this.toastService.openToast({
+          toastTitle: 'Error',
+          toastMsg: "Faltan campos por rellenar",
+          type: 'danger'
+        })
+
+        return;
       }
       
       this.coordsSubscription = this.commerceService.getCoords( this.regForm.value.location ).subscribe( data => {

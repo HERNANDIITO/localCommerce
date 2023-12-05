@@ -43,15 +43,15 @@
                     <label for="type"> Tipo de comercio </label>
                     <div #type placement="top-end" ngbDropdown>
                         <button type="button" class="lc-input" id="dropdownBasic1" ngbDropdownToggle>
-                            {{selectedType}}
+                            {{getLocalTypeString(selectedType)}}
                         </button>
                         <div ngbDropdownMenu class="dropdown">
-                            <button (click)="selectedType = 'coffee'"  ngbDropdownItem>Cafetería</button>
-                            <button (click)="selectedType = 'bar'"     ngbDropdownItem>Gastronomía</button>
-                            <button (click)="selectedType = 'books'"   ngbDropdownItem>Librería</button>
-                            <button (click)="selectedType = 'clothes'" ngbDropdownItem>Moda</button>
-                            <button (click)="selectedType = 'fruit'"   ngbDropdownItem>Frutería</button>
-                            <button (click)="selectedType = 'bread'"   ngbDropdownItem>Panadería</button>
+                            <button type="button" (click)="selectedType = 'coffee'"  ngbDropdownItem>Cafetería</button>
+                            <button type="button" (click)="selectedType = 'bar'"     ngbDropdownItem>Gastronomía</button>
+                            <button type="button" (click)="selectedType = 'books'"   ngbDropdownItem>Librería</button>
+                            <button type="button" (click)="selectedType = 'clothes'" ngbDropdownItem>Moda</button>
+                            <button type="button" (click)="selectedType = 'fruit'"   ngbDropdownItem>Frutería</button>
+                            <button type="button" (click)="selectedType = 'bread'"   ngbDropdownItem>Panadería</button>
                         </div>
                     </div>
                     <button [disabled]="!isLoged" class="lc-button">Regístrate</button>

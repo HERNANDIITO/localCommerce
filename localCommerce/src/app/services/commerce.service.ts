@@ -24,7 +24,7 @@ export class CommerceService {
   }
 
   getCoords( location: string ) {
-    return this._httpClient.get<any>(`https://api.geoapify.com/v1/geocode/search?text=${location}&limit=1&type=amenity&format=json&apiKey=85201aebfd284ff5b56b7ab88f143aec`
+    return this._httpClient.get<any>(`https://api.geoapify.com/v1/geocode/search?text=${location}&limit=1&lang=es&type=amenity&format=json&apiKey=85201aebfd284ff5b56b7ab88f143aec`
     )
   }
 }
