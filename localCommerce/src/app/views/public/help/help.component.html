@@ -2,14 +2,14 @@
     <article class="lc-landscape">
         <img src="/assets/images/landscape.png" alt="">
     </article>
-    <article>
-        <div class="row mx-auto col-12 col-md-10 justify-content-between">
-            <div class="lc-card row col-3">
+    <article class="content">
+        <div class="row justify-content-around">
+            <div class="lc-card col-3">
                 <h1 class="text-center">Inicio</h1>
-                <button *ngFor="let help of helps" class="lc-button" >{{help.title}}</button>
+                <button (click)="selectedHelp = help" *ngFor="let help of helps" class="lc-button text-center" >{{help.title}}</button>
             </div>
-            <div class="col-8">
-                <div class="lc-card col-12 text-center">
+            <div class="lc-card col-6">
+                <div class="col-12 text-center help">
                     <h1>Ayuda</h1>
                     <ng-container [ngTemplateOutlet]="selectedHelp ? sectionSelected : nothingSelected"></ng-container>
                 </div>
@@ -20,14 +20,16 @@
 
 <ng-template #nothingSelected>
     <section class="row">
-        <article *ngFor="let help of helps" class="col-4">
-            <img src="" alt="">
-            <p>{{help.content}}</p>
+        <article (click)="selectedHelp = help" *ngFor="let help of helps" class="help-icon col-4">
+            <img src="/assets/images/help-icons/{{help.icon}}.png" alt="">
+            <p>{{help.title}}</p>
         </article>
     </section>
 </ng-template>
 
 <ng-template #sectionSelected>
-    <h2>{{selectedHelp?.title}}</h2>
-    <p>{{selectedHelp?.content}}</p>
+    <div class="help-container">
+        <h2>{{selectedHelp?.title}}</h2>
+        <p>{{selectedHelp?.content}}</p>
+    </div>
 </ng-template>

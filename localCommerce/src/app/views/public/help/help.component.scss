@@ -1,8 +1,31 @@
 .lc-button {
     padding: .5rem 1rem !important;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
-article:not(.lc-landscape) {
+.content {
+    width: 80%;
     margin: 2.5rem 0 !important;
+}
+
+.help {
+    height: 100%;
+    min-width: 100%;
+}
+
+.help-icon {
+    
+    margin-bottom: 1rem;
+
+    &:hover {
+        filter: drop-shadow(0px 0px 5px var(--c10));
+        cursor: pointer;
+        transition: all .5s;
+    }
+
+    img {
+        margin-bottom: .5rem;
+        width: 50%;
+    }
 }

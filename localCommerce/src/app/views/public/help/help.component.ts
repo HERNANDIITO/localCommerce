@@ -15,7 +15,7 @@ export class HelpComponent implements OnInit{
       id: 0,
       title: 'Sobre la web',
       content: 'Sobre la web hay muchas movidas que decir',
-      icon: 'about'
+      icon: 'info'
     })
 
     this.helps.push({
@@ -29,28 +29,28 @@ export class HelpComponent implements OnInit{
       id: 2,
       title: 'Descuentos',
       content: 'El mapa es increible',
-      icon: 'map'
+      icon: 'desc'
     })
 
     this.helps.push({
       id: 3,
       title: 'Cuenta',
       content: 'El mapa es increible',
-      icon: 'map'
+      icon: 'account'
     })
 
     this.helps.push({
       id: 4,
       title: 'Gestión del comercio',
       content: 'El mapa es increible',
-      icon: 'map'
+      icon: 'commerce'
     })
 
     this.helps.push({
       id: 5,
       title: 'Seguridad',
       content: 'El mapa es increible',
-      icon: 'map'
+      icon: 'security'
     })
   }
 
