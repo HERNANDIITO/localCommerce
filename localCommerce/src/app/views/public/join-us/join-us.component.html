@@ -22,7 +22,7 @@
                     <input id="location" #location (change)="updatePreview()" class="lc-input" formControlName="location" type="text" placeholder="Dirección">
                     
                     <label for="type"> Tipo de comercio </label>
-                    <div #type placement="top-end" ngbDropdown>
+                    <div #type placement="end" ngbDropdown container="body">
                         <button type="button" class="lc-input" id="dropdownBasic1" ngbDropdownToggle>
                             {{getLocalTypeString(selectedType)}}
                         </button>

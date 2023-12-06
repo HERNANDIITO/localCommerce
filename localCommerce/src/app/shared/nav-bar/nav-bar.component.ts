@@ -21,6 +21,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
     userSubscription?: Subscription;
     actualRoute = '';
     scrolled = false;
+    dropDownOpen = false;
 
     @HostListener('window:scroll', [])
     onWindowScroll() {
@@ -49,8 +50,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.dropdownList.forEach( dd => {
       if ( dd.isOpen() ) {
         dd.dropdownClass = 'active';
+        this.dropDownOpen = true;
       } else {
         dd.dropdownClass = '';
+        this.dropDownOpen = false;
       }
     })
   }

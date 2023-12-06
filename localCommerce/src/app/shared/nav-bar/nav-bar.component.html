@@ -1,4 +1,4 @@
-<nav [ngClass]="{nabvar_bg: scrolled}"> 
+<nav [ngClass]="{nabvar_bg: scrolled || dropDownOpen}"> 
     <ul>
         <ng-container *ngFor="let route of navRoutes">
             <ng-container *ngIf="route.isPublic">

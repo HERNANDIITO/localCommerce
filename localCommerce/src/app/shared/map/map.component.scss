@@ -7,3 +7,7 @@
 .leaflet-bar a {
     background-color: var(--c60);
 }
+
+:host {
+    filter: drop-shadow(0px 0px 5px black);
+}

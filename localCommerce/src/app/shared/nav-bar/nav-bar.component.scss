@@ -6,6 +6,12 @@
 
 nav {
 
+    &:hover {
+        border-bottom: 2.5px solid var(--c10);
+        background-color: var(--c30);
+        transition: background-color .5s;
+    }
+
     position: relative;
     
     transition: all .5s;
