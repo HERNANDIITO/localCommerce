@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommercesComponent } from './commerces/commerces.component';
 import { TicketComponent } from './commerces/ticket/ticket.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     PublicRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    MatIconModule
   ]
 })
 export class PublicModule { }

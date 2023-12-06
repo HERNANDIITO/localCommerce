@@ -1,16 +1,11 @@
-.lc-container {
-    height: 100vh;
-    width: 90%;
-    padding: 60px 0;
 
-    lc-ticket {
-        margin-bottom: 1rem;
-    }
+lc-ticket {
+    margin-bottom: 1rem;
+}
 
-    .tickets {
-        height: 100%;
-        overflow: auto;
-        display: flex;
-        flex-flow: column;
-    }
+.tickets {
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
 }

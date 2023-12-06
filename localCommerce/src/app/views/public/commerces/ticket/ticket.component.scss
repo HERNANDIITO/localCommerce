@@ -3,7 +3,8 @@ article {
     flex-flow: row;
     border-radius: 1rem;
     overflow: hidden;
-    background-color: var(--c30);
+    background-color: var(--c60);
+    border: 2.5px solid var(--c10);
 
     .icon {
         width:  64px;

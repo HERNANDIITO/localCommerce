@@ -48,6 +48,17 @@ $localCommerce-theme: mat.define-light-theme((
 
 }
 
+.lc-content {
+    width: 80%;
+    margin: 70px 0 !important;
+    height: calc(100vh - 140px);
+
+    .row {
+        width: 100% !important;
+        margin: auto;
+    }
+}
+
 .lc-link {
     color: var(--c10) !important;
     cursor: pointer;

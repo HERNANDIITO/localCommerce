@@ -1,10 +1,7 @@
 main {  
-    article:not(.lc-landscape) {
+    article {
 
         filter: drop-shadow(0px 0px 0px 5px black);
-
-        margin: 2.5rem 0 !important;
-        width: 65%;
 
         .lc-search {
             width: 85%;

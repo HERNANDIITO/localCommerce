@@ -1,18 +1,12 @@
 <main class="lc-bg">
-    <article class="lc-landscape">
-        <img src="/assets/images/landscape.png" alt="">
-    </article>
-    <article class="content">
+    <article class="lc-card lc-content">
         <div class="row justify-content-around">
-            <div class="lc-card col-3">
-                <h1 class="text-center">Inicio</h1>
-                <button (click)="selectedHelp = help" *ngFor="let help of helps" class="lc-button text-center" >{{help.title}}</button>
-            </div>
-            <div class="lc-card col-6">
-                <div class="col-12 text-center help">
-                    <h1>Ayuda</h1>
-                    <ng-container [ngTemplateOutlet]="selectedHelp ? sectionSelected : nothingSelected"></ng-container>
-                </div>
+            <div class="col-12 text-center help">
+                <button (click)="selectedHelp = undefined" *ngIf="selectedHelp" class="back lc-button">
+                    <mat-icon fontIcon="undo"></mat-icon>
+                </button>
+                <h1>Ayuda</h1>
+                <ng-container [ngTemplateOutlet]="selectedHelp ? sectionSelected : nothingSelected"></ng-container>
             </div>
         </div>
     </article>
