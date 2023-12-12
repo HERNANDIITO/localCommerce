@@ -62,30 +62,26 @@ $localCommerce-theme: mat.define-light-theme((
 .lc-link {
     color: var(--c10) !important;
     cursor: pointer;
-
-    &:hover {
-
-    }
 }
 
 html {
     background-color: var(--c30);
 }
 
+* {
+    font-family: "Outfit" !important;
+}
+
 h1 {
     color: var(--c10) !important;
-    font-family: "Bebas Neue";
+    font-family: "Montserrat" !important;
     font-size: 5rem !important;
     line-height: 85% !important;
 }
 
 h2 {
-    font-family: "Playfair Display Semibold";
+    font-family: "Montserrat" !important;
     margin-bottom: .5rem !important;
-}
-
-label {
-    font-family: "Playfair Display Semibold";
 }
 
 p {

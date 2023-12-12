@@ -1,3 +1,12 @@
+p, img {
+    margin: 0 !important;
+}
+
+p {
+    color: var(--c10) !important;
+    font-family: "Montserrat";
+}
+
 .lc-button {
     padding: .5rem 1rem !important;
     margin-bottom: 1rem;

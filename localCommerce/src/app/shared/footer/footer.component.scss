@@ -5,4 +5,22 @@ footer {
         margin: 0 !important;
 
     }
+
+    .rrss {
+        display: flex;
+        flex-flow: row;
+        width: 100%;
+        justify-content: space-around;
+        img {
+            width: 64px;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all .5s;
+
+            &:hover {
+                scale: 1.25;
+                transition: all .5s;
+            }
+        }
+    }
 }
