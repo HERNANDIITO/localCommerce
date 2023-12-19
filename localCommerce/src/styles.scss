@@ -38,6 +38,10 @@ $localCommerce-theme: mat.define-light-theme((
     font-family: "Arimo";
 }
 
+mat-icon {
+    font-family: 'Material Icons' !important
+}
+
 // Paleta de color
 
 :root {
